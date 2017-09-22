@@ -8,15 +8,6 @@
 ## Modified by Ashish Gupta 2017-09-25 Got rid of unneeded aliases and made file pretty
 ## -----------------------------------------------------------------------------------------
 
-# Movement Commands
-#alias cd..='cd ..'
-#alias ..='cd ..'
-#alias ...='cd ../../'
-#alias ....='cd ../../../'
-#alias .....='cd ../../../../'
-#alias .4='cd ../../../../'
-#alias .5='cd ../../../../..'
-
 # Searching Commands
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
