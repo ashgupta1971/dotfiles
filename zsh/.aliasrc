@@ -9,18 +9,19 @@
 ## -----------------------------------------------------------------------------------------
 
 # Movement Commands
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../..'
+#alias cd..='cd ..'
+#alias ..='cd ..'
+#alias ...='cd ../../'
+#alias ....='cd ../../../'
+#alias .....='cd ../../../../'
+#alias .4='cd ../../../../'
+#alias .5='cd ../../../../..'
 
 # Searching Commands
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+alias locate='locate -i'
 
 # Crypto Commands
 alias sha256='openssl sha256'
@@ -30,12 +31,15 @@ alias md5='openssl md5'
 # System Monitoring Commands
 alias j='jobs -l'
 alias meminfo='free -m -l -t'
+alias psf='ps -opid,uid,cpu,time,stat,command'
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
-alias df='df -H'
+alias df='df -h'
 alias du='du -ch'
+alias ducks='du -cks * | sort -rn | head -15'
+alias dus='du -sh'
 
 # Networking Commands
 alias ping='ping -c 5'
@@ -73,47 +77,7 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 alias mmv='noglob zmv -W'
-
 alias vi=$EDITOR
 alias vv=$EDITOR' -N -u NONE' # fast Vim that doesn't load a vimrc or plugins
-
 alias less='less -imJMW'
-alias cls='clear' # note: ctrl-L under zsh does something similar
-alias locate='locate -i'
-alias lynx='lynx -cfg=$HOME/.lynx.cfg -lss=$HOME/.lynx.lss'
-alias ducks='du -cks * | sort -rn | head -15'
-alias tree="tree -FC --charset=ascii"
-alias psf='ps -opid,uid,cpu,time,stat,command'
-alias df='df -h'
-alias dus='du -sh'
 alias info='info --vi-keys'
-alias clip='xclip -selection clipboard'
-alias ocaml='rlwrap ocaml'
-alias node='env NODE_NO_READLINE=1 rlwrap node'
-#alias rs='rsync -avhzC --progress'
-alias rs='rsync --update --archive --recursive --delete --human-readable --verbose --progress --chown=root:root --exclude-from=/home/ashish/bin/excludes.txt'
-compdef rs=rsync
-
-# Quickly ssh through a bastian host without having to hard-code in ~/.ssh/config
-alias pssh='ssh -o "ProxyCommand ssh $PSSH_HOST nc -w1 %h %p"'
-
-# Useful for accessing versioned Mercurial Queues
-alias mq='hg -R $(hg root)/.hg/patches'
-
-# Useful for working with Git remotes; e.g., ``git log IN``
-alias -g IN='..@{u}'
-alias -g OUT='@{u}..'
-alias -g UP='@{u}'
-
-# Useful for running ``git fetch -a`` on several repos.
-alias fetchall='find . -type d -name .git -print0 | xargs -r -0 -I@ git --git-dir=@ fetch -a'
-
-# Don't prompt to save when exiting R
-alias R='R --no-save'
-
-# Selects a random file: ``mplayer RANDOM``
-alias -g RANDOM='"$(files=(*(.)) && echo $files[$RANDOM%${#files}+1])"'
-
-# trailing space helps sudo recognize aliases
-# breaks if flags are given (e.g. sudo -u someuser vi /etc/hosts)
-alias sudo='command sudo '
