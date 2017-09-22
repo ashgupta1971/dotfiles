@@ -76,13 +76,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 #-------- Color output for some commands
 if [ -x /usr/bin/dircolors ]; then
         eval "$(/usr/bin/dircolors)"
-        alias ls='ls --color=auto'
-        alias dir='dir --color=auto'
-        alias vdir='vdir --color=auto'
-
-        alias grep='grep --color=auto'
-        alias fgrep='fgrep --color=auto'
-        alias egrep='egrep --color=auto'
 fi
 
 #-------- Color Manpages
@@ -127,7 +120,9 @@ bindkey -M vicmd "v" edit-command-line
 # }}}
 # {{{ aliases
 
-source ~/.aliasrc
+if [[ -r ~/dotfiles/zsh/.aliasrc ]]; then
+        . ~/dotfiles/zsh/.aliasrc
+fi
 
 # }}}
 # ..() Switch to parent directory by matching on partial name {{{1

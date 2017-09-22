@@ -38,8 +38,8 @@ alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 alias df='df -h'
 alias du='du -ch'
-alias ducks='du -cks * | sort -rn | head -15'
 alias dus='du -sh'
+alias ducks='du -cks * | sort -rn | head -15'
 
 # Networking Commands
 alias ping='ping -c 5'
