@@ -107,16 +107,9 @@ unset safe_term match_lhs
 # See also: https://wiki.archlinux.org/index.php/Bash#The_.22command_not_found.22_hook
 [ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
 
-#man() {
-#    env LESS_TERMCAP_mb=$'\E[01;31m' \
-#    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-#    LESS_TERMCAP_me=$'\E[0m' \
-#    LESS_TERMCAP_se=$'\E[0m' \
-#    LESS_TERMCAP_so=$'\E[38;5;246m' \
-#    LESS_TERMCAP_ue=$'\E[0m' \
-#    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-#    man "$@"
-#}
+if [[ -r ~/dotfiles/zsh/.envvars ]]; then
+        . ~/dotfiles/bash/.envvars
+fi
 
 if [[ -r ~/dotfiles/bash/.aliasrc ]]; then
         . ~/dotfiles/bash/.aliasrc

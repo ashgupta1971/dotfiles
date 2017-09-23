@@ -48,46 +48,16 @@ umask 027
 path+=( $HOME/bin /sbin /usr/sbin /usr/local/sbin ); path=( ${(u)path} );
 CDPATH=$CDPATH::$HOME:/usr/local
 
-HISTFILE=$HOME/.zsh_history
-HISTFILESIZE=65536  # search this with `grep | sort -u`
-HISTSIZE=4096
-SAVEHIST=4096
-
-REPORTTIME=60       # Report time statistics for progs that take more than a minute to run
-WATCH=notme         # Report any login/logout of other users
-WATCHFMT='%n %a %l from %m at %T.'
-
-# utf-8 in the terminal, will break stuff if your term isn't utf aware
-export LANG=en_US.UTF-8
-export LC_ALL=$LANG
-export LC_COLLATE=C
-
-export VISUAL='gvim -v'
-export EDITOR='vim'
-export GIT_EDITOR=$EDITOR
-export LESS='-imJMWR'
-export PAGER="less $LESS"
-export MANPAGER=$PAGER
-export GIT_PAGER=$PAGER
-export BROWSER='google-chrome'
-
-export XDG_CONFIG_HOME="$HOME/.config"
 
 #-------- Color output for some commands
 if [ -x /usr/bin/dircolors ]; then
         eval "$(/usr/bin/dircolors)"
 fi
 
-#-------- Color Manpages
-export LESS_TERMCAP_mb=$'\E[01;31m'             # begin blinking
-export LESS_TERMCAP_md=$'\E[01;31m'             # begin bold
-export LESS_TERMCAP_me=$'\E[0m'                 # end mode
-export LESS_TERMCAP_se=$'\E[0m'                 # end standout-mode                 
-export LESS_TERMCAP_so=$'\E[01;44;33m'          # begin standout-mode - info box                              
-export LESS_TERMCAP_ue=$'\E[0m'                 # end underline
-export LESS_TERMCAP_us=$'\E[01;32m'             # begin underline
-#export MANPAGER="/usr/bin/most -s"             # color using most
-
+HISTFILE=$HOME/.zsh_history
+if [[ -r ~/dotfiles/zsh/.envvars ]]; then
+        . ~/dotfiles/zsh/.envvars
+fi
 
 # }}}
 # {{{ completions
