@@ -108,7 +108,7 @@ unset safe_term match_lhs
 [ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
 
 if [[ -r ~/dotfiles/zsh/.envvars ]]; then
-        . ~/dotfiles/bash/.envvars
+        . ~/dotfiles/zsh/.envvars
 fi
 
 if [[ -r ~/dotfiles/bash/.aliasrc ]]; then
