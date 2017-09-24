@@ -1,0 +1,15 @@
+# These are all the statically addressed hosts on my LAN.
+
+# My ARCH1 is the wired connection, ARCH2 is the wifi connection
+192.168.0.100   ARCHPC1
+192.168.0.101   ARCHPC2
+
+# Raspberry Pi with Raspbian and LibreELEC
+192.168.0.102   RPI2
+192.168.0.103   LIBREELEC
+
+# Virtual Machines
+192.168.0.110   ARCHVM
+192.168.0.120   MINT18VM
+192.168.0.130   FREEBSD10-1VM
+192.168.0.140   FREEBSD11-1VM
