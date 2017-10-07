@@ -13,6 +13,9 @@
 192.168.0.105	ASUSPC
 192.168.0.106	TOSHIBAPC
 
+# Linux Mint on Toshiba Laptop
+192.168.0.107   MINTPC
+
 # Virtual Machines
 192.168.0.110   ARCHVM
 192.168.0.120   MINT18VM
