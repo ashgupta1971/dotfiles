@@ -1,8 +1,8 @@
 # These are all the statically addressed hosts on my LAN.
 
-# My ARCH1 is the wired connection, ARCH2 is the wifi connection
-192.168.0.100   ARCHPC1
-192.168.0.101   ARCHPC2
+# My ARCHPC is my Asus desktop
+192.168.0.100   ARCHPC-WIRED
+192.168.0.101   ARCHPC-WIFI
 
 # Raspberry Pi with Raspbian and LibreELEC
 192.168.0.102   RPI2-WIFI
