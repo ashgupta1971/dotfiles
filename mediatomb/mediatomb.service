@@ -1,0 +1,15 @@
+[Unit]
+Description=MediaTomb UPnP Media Server
+DefaultDependencies=no
+After=network.target
+
+[Service]
+#ExecStart=/usr/bin/mediatomb --port 49152 --daemon --logfile /home/ashish/.mediatomb/mediatomb.logfile --home /home/ashish/Music
+#Type=Forking
+#ExecStart=/usr/bin/mediatomb --port 49152 --daemon --config /home/ashish/.mediatomb/config.xml --home /home/ashish/Music -l /home/ashish/.mediatomb/mediatomb.log
+ExecStart=/usr/bin/mediatomb --port 49152 --config /home/ashish/.mediatomb/config.xml --home /home/ashish/Music -l /home/ashish/.mediatomb/mediatomb.log
+RemainAfterExit=True
+
+[Install]
+Alias=mediatomb
+#WantedBy=multi-user.target
