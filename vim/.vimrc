@@ -10,7 +10,7 @@ set cm=blowfish2
 "
 " Abbreviations
 "
-:ab sig Ashish Gupta
+:ab sig YOUR NAME GOES HERE
 
 "
 " Key bindings
