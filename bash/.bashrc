@@ -107,10 +107,15 @@ unset safe_term match_lhs
 # See also: https://wiki.archlinux.org/index.php/Bash#The_.22command_not_found.22_hook
 [ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
 
+# Enable vi mode on the bash prompt
+set -o vi
+
+# Read environment variables
 if [[ -r ~/dotfiles/zsh/.envvars ]]; then
         . ~/dotfiles/zsh/.envvars
 fi
 
+# Set aliases
 if [[ -r ~/dotfiles/bash/.aliasrc ]]; then
         . ~/dotfiles/bash/.aliasrc
 fi
