@@ -3,6 +3,11 @@
 " Date: Apr 7 2017 Initial implementation.
 
 "
+" Enable plugins
+"
+filetype plugin on
+
+"
 " Enable blowfish2 encryption
 "
 set cm=blowfish2
@@ -17,7 +22,8 @@ set cm=blowfish2
 "
 :map <F2> :tabnew<CR>
 :map <F3> gt
-:map <F4> i<h1><Esc>ea</h1><Esc>a
+:map <F4> :tabclose<CR>
+:map <F5> i<h1><Esc>ea</h1><Esc>a
 let mapleader=","       " leader is comma
 " edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>ev :vsp ~/.vimrc<CR>
@@ -27,10 +33,35 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 nnoremap <leader>s :mksession<CR>
 
 "
+" Display file name in title bar
+"
+set title
+
+"
+" Allow mouse to move cursor
+"
+set mouse=a
+
+"
+" Allow tab completion of commands
+"
+set wildmenu
+
+"
+" Better handling of tabs when pasting
+"
+set paste
+
+"
 " Line numbering
 "
 set number
 set relativenumber
+
+"
+" Don't hit edge of screen when scrolling
+"
+set scrolloff=5
 
 "
 " Colors and syntax highlighting
