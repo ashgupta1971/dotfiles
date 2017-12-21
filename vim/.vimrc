@@ -15,6 +15,8 @@ set cm=blowfish2
 "
 " Key bindings
 "
+:map <F2> :tabnew<CR>
+:map <F3> gt
 :map <F4> i<h1><Esc>ea</h1><Esc>a
 let mapleader=","       " leader is comma
 " edit vimrc/zshrc and load vimrc bindings
