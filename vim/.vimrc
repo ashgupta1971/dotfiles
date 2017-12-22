@@ -1,6 +1,7 @@
 " .vimrc
 " Author: Ashish Gupta
 " Date: Apr 7 2017 Initial implementation.
+"       Dec 20 2017 More changes as suggested by Fuzicast.
 
 "
 " Enable plugins
@@ -23,7 +24,17 @@ set cm=blowfish2
 :map <F2> :tabnew<CR>
 :map <F3> gt
 :map <F4> :tabclose<CR>
-:map <F5> i<h1><Esc>ea</h1><Esc>a
+:map <F5> :qa<CR>
+
+" Open file whose name is currently under cursor in a new tab
+:map <F6> <C-W>gf<CR> 
+
+" Open file browser
+:map <F7> :tabnew<CR>:Explore<CR>
+
+" Dummy map
+:map <F8> <h1><Esc>ea</h1><Esc>a
+
 let mapleader=","       " leader is comma
 " edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>ev :vsp ~/.vimrc<CR>
@@ -31,6 +42,20 @@ nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 " save session
 nnoremap <leader>s :mksession<CR>
+
+" Make sure Vim returns to the same line when you reopen a file.
+" Thanks, Amit
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 "
 " Display file name in title bar
