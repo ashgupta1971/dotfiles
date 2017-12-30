@@ -2,7 +2,7 @@
 
 nemo &
 gnome-terminal &
-sleep 10
+sleep 15
 
 wmctrl -r home -t 1
 wmctrl -r home -b add,maximized_vert
