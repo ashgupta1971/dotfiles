@@ -72,3 +72,4 @@ alias vi=$EDITOR
 alias vv=$EDITOR' -N -u NONE' # fast Vim that doesn't load a vimrc or plugins
 alias less='less -imJMW'
 alias info='info --vi-keys'
+alias pbcopy='xclip -selection clipboard'

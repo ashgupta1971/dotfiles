@@ -91,7 +91,7 @@ set scrolloff=5
 "
 " Colors and syntax highlighting
 "
-color darkblue
+color ron
 syntax enable
 
 "
