@@ -17,6 +17,7 @@ set cm=blowfish2
 " Abbreviations
 "
 :ab sig YOUR NAME GOES HERE
+:ab mus MUST TRY!!!
 
 "
 " Key bindings
@@ -74,8 +75,8 @@ set wildmenu
 
 "
 " Better handling of tabs when pasting
-"
-set paste
+" (disabled to allow abbreviations)
+"set paste
 
 "
 " Line numbering
