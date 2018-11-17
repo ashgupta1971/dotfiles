@@ -295,6 +295,7 @@ precmd_functions=( precmd_prompt grep_options )
 # Set up prompt
 autoload -Uz promptinit
 promptinit
-prompt adam1
+#prompt adam1
+prompt adam2
 
 # EOF
