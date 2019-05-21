@@ -131,3 +131,8 @@ nnoremap <leader><space> :nohlsearch<CR>
 " space open/closes folds
 "nnoremap <space> za
 "set foldmethod=indent   " fold based on indent level
+
+"
+" The following mapping will allow you to save a read-only file
+"
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
