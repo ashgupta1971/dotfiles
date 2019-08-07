@@ -47,7 +47,8 @@ alias wget='wget -c'
 
 # Misc Commands
 alias ls='ls -F --color=auto'
-alias ll='ls -lha'
+#alias ll='ls -lha'
+alias ll='ls -lha --group-directories-first'
 alias la='ls -A'
 alias lls='ll -Sr'
 alias l.='command ls -d .* --color=auto'
