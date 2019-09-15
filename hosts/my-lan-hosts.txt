@@ -11,6 +11,6 @@
 192.168.0.130   kodi        kodi.apollo120.com
 
 # Virtual Machines
-192.168.0.140   mint18vm    mint18vm.apollo120.com
-192.168.0.150   mint19vm    mint19vm.apollo120.com
-192.168.0.160   winvm       winvm.apollo120.com
+192.168.0.200   mint18vm    mint18vm.apollo120.com
+192.168.0.210   mint19vm    mint19vm.apollo120.com
+192.168.0.220   winvm       winvm.apollo120.com
