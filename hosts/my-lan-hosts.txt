@@ -1,16 +1,18 @@
+#########################################################
 # These are all the statically addressed hosts on my LAN.
+#########################################################
 
 # My Asus desktop
-192.168.0.100   asus        asus.apollo120.com
+192.168.0.100   asus.apollo120.com      asus
 
 # Toshiba Laptop
-192.168.0.110   toshiba toshiba.apollo120.com
+192.168.0.110   toshiba.apollo120.com   toshiba
 
 # Raspberry Pi with Raspbian and LibreELEC
-192.168.0.120   rpi2        rpi2.apollo120.com
-192.168.0.130   kodi        kodi.apollo120.com
+192.168.0.120   rpi2.apollo120.com      rpi2
+192.168.0.130   kodi.apollo120.com      kodi
 
 # Virtual Machines
-192.168.0.200   mint18vm    mint18vm.apollo120.com
-192.168.0.210   mint19vm    mint19vm.apollo120.com
-192.168.0.220   winvm       winvm.apollo120.com
+192.168.0.200   mint18vm.apollo120.com  mint18vm
+192.168.0.210   mint19vm.apollo120.com  mint19vm
+192.168.0.220   winvm.apollo120.com     winvm
