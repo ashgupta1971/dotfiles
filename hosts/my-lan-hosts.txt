@@ -1,24 +1,16 @@
 # These are all the statically addressed hosts on my LAN.
 
-# My ARCHPC is my Asus desktop
-192.168.0.100   ARCHPC-WIRED
-192.168.0.101   ARCHPC-WIFI
+# My Asus desktop
+192.168.0.100   asus        asus.apollo120.com
+
+# Toshiba Laptop
+192.168.0.110   toshiba toshiba.apollo120.com
 
 # Raspberry Pi with Raspbian and LibreELEC
-192.168.0.102   RPI2-WIFI
-192.168.0.103   RPI2-WIRED
-192.168.0.104   LIBREELEC
-
-# Windows Systems
-192.168.0.105	ASUSPC
-192.168.0.106	TOSHIBAPC
-
-# Linux Mint on Toshiba Laptop
-192.168.0.107   MINTPC-WIRED
-192.168.0.108   MINTPC-WIFI
+192.168.0.120   rpi2        rpi2.apollo120.com
+192.168.0.130   kodi        kodi.apollo120.com
 
 # Virtual Machines
-192.168.0.110   ARCHVM
-192.168.0.120   MINT18VM
-192.168.0.130   FREEBSD10-1VM
-192.168.0.140   FREEBSD11-1VM
+192.168.0.140   mint18vm    mint18vm.apollo120.com
+192.168.0.150   mint19vm    mint19vm.apollo120.com
+192.168.0.160   winvm       winvm.apollo120.com
