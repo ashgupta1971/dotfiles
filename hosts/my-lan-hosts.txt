@@ -9,8 +9,7 @@
 192.168.0.110   toshiba.apollo120.com   toshiba
 
 # Raspberry Pi with Raspbian and LibreELEC
-192.168.0.120   rpi2.apollo120.com      rpi2
-192.168.0.130   kodi.apollo120.com      kodi
+192.168.0.120   rpi2.apollo120.com      rpi2    libre.apollo120.com      libre
 
 # Virtual Machines
 192.168.0.200   mint18vm.apollo120.com  mint18vm
