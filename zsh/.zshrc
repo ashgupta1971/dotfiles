@@ -291,11 +291,11 @@ function my_backup() {
         
 # Backup to Raspberry Pi rsync daemon
 function rpi2-backup() {
-        rsync --dry-run -avux --delete --human-readable --stats --progress "/home/ashish/$1/" "rsync://ashish@rpi2-wifi:2000/$1"
+        rsync --dry-run -avux --delete --human-readable --stats --progress "/home/ashish/$1/" "rsync://ashish@rpi2:2000/$1"
         echo "Sync $1? (yes/no):"
         read ANSWER
         if [[ $ANSWER = (#i)"yes" ]]; then
-                rsync -avux --delete --human-readable --stats --progress "/home/ashish/$1/" "rsync://ashish@rpi2-wifi:2000/$1"
+                rsync -avux --delete --human-readable --stats --progress "/home/ashish/$1/" "rsync://ashish@rpi2:2000/$1"
         fi
 }
 
