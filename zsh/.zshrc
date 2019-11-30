@@ -308,6 +308,7 @@ function rsync-backup() {
                 echo
                 echo "$RSYNC_PASSWORD" | rsync --password-file=- --dry-run -avux --delete --human-readable --stats --progress "/home/ashish/$d/" "rsync://ashish@$DEST:2000/$d"
                 read -k 1 "BACKUP?Backup this folder (y/n)?"
+                echo
                 if [[ $BACKUP = (#i)"y" ]]; then
                         echo "$RSYNC_PASSWORD" | rsync --password-file=- -avux --delete --human-readable --stats --progress "/home/ashish/$d/" "rsync://ashish@$DEST:2000/$d"
                 fi
