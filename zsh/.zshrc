@@ -315,6 +315,11 @@ function rsync-backup() {
         done
 }
 
+# This trick lists all git repos by a user (function arg) - got it from commanline.fu
+function list-git-repos() {
+    curl -s "https://api.github.com/users/$1/repos?per_page=1000" | python <(echo "import json,sys;v=json.load(sys.stdin);for i in v:; print(i['git_url']);" | tr ';' '\n')
+}
+
 # Run precmd functions
 precmd_functions=( precmd_prompt grep_options )
 
