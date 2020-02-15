@@ -27,6 +27,12 @@ set cm=blowfish2
 :map <F4> :tabclose<CR>
 :map <F5> :qa<CR>
 
+"
+" Quicly save the current file
+"
+nnoremap <leader>s :w<CR> 
+inoremap <leader>s <C-c>:w<CR>
+
 " Open file whose name is currently under cursor in a new tab
 :map <F6> <C-W>gf<CR> 
 
