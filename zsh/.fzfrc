@@ -55,8 +55,11 @@ EORUBY
 
   echo -e "$output"                                            |
           fzf --ansi --multi --tiebreak=begin |
-  awk 'BEGIN { FS = "\t" } { print $2 }'                       |
-  xargs xdg-open &>/dev/null
+          #for url in  $(awk 'BEGIN { FS = "\t" } { print $2 }'); do xdg-open $url; done
+          awk 'BEGIN { FS = "\t" } { print $2 }' |
+                 xargs -n 1 xdg-open
+  
+  #xargs xdg-open &>/dev/null
 
 }
 
