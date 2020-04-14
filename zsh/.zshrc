@@ -328,5 +328,20 @@ autoload -Uz promptinit
 promptinit
 #prompt adam1
 prompt adam2
+#prompt powerlevel9k
+
+preexec() {
+    cmd_start="$SECONDS"
+}
+
+precmd() {
+  local cmd_end="$SECONDS"
+  elapsed=$((cmd_end-cmd_start))
+#  echo $elapsed
+  #PS1="$elapsed "
+  #PS1="$(date -d@$elapsed -u +%H:%M:%S)"
+}
+
+source ~/dotfiles/zsh/.fzfrc\
 
 # EOF
