@@ -342,6 +342,8 @@ precmd() {
   #PS1="$(date -d@$elapsed -u +%H:%M:%S)"
 }
 
-source ~/dotfiles/zsh/.fzfrc\
+source ~/dotfiles/zsh/.fzf.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # EOF

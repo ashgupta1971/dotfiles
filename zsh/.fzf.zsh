@@ -2,6 +2,27 @@
 
 #export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 
+# c - browse chrome history
+c() {
+  local cols sep google_history open
+  cols=$(( COLUMNS / 3 ))
+  sep='{::}'
+
+  if [ "$(uname)" = "Darwin" ]; then
+    google_history="$HOME/Library/Application Support/Google/Chrome/Default/History"
+    open=open
+  else
+    google_history="$HOME/.config/google-chrome/Default/History"
+    open=xdg-open
+  fi
+  cp -f "$google_history" /tmp/h
+  sqlite3 -separator $sep /tmp/h \
+    "select substr(title, 1, $cols), url
+     from urls order by last_visit_time desc" |
+  awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
+  fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs -n 1 $open > /dev/null 2> /dev/null
+}
+
 # b - browse chrome bookmarks
 b() {
   local open ruby output
@@ -91,11 +112,38 @@ fh() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
 }
 
+# fp - file preview
+fp() {
+  #find . -type f | fzf --preview 'bat --wrap auto --terminal-width 40 --style=numbers --color=always {} | head -500'
+  find . -type f | fzf --preview 'bat --style=numbers --color=always {} | head -500' | sed -e "s/'/'\\\\''/g;s/\(.*\)/'\1'/" | xargs -n 1 xdg-open
+}
+
+# pac-preview - preview installed pkgs
+pac-preview() {
+  pacman -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
+}
+
+zle -N c
+bindkey '^x^h' c
 zle -N b
 bindkey '^b'  b
+zle -N pac-preview
+bindkey '^x^a'  pac-preview
 zle -N fkill
 bindkey '^k' fkill
 zle -N fh
 bindkey '^h' fh
 zle -N fman
 bindkey '^x^m' fman
+zle -N fp
+bindkey '^x^p' fp
+
+#export FZF_COMPLETION_TRIGGER=''
+#bindkey '^T' fzf-completion
+#bindkey '^I' $fzf_default_completion
+
+# Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
+#export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+#export FZF_CTRL_T_OPTS="--select-1 --exit-0"
+
+#export FZF_CTRL_R_OPTS='--sort --exact'
