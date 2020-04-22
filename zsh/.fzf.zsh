@@ -115,7 +115,7 @@ fh() {
 # fp - file preview
 fp() {
   #find . -type f | fzf --preview 'bat --wrap auto --terminal-width 40 --style=numbers --color=always {} | head -500'
-  find . -type f | fzf --preview 'bat --style=numbers --color=always {} | head -500' | sed -e "s/'/'\\\\''/g;s/\(.*\)/'\1'/" | xargs -n 1 xdg-open
+  find . -type f 2> /dev/null | fzf --select-1 --exit-0 --preview 'bat --style=numbers --color=always {} | head -500' | sed -e "s/'/'\\\\''/g;s/\(.*\)/'\1'/" | ([ -z - ] || xdg-open ) 2> /dev/null
 }
 
 # pac-preview - preview installed pkgs
