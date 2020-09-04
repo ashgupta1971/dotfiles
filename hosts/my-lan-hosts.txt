@@ -8,8 +8,11 @@
 # Toshiba Laptop
 192.168.0.110   toshiba.apollo120.com   toshiba
 
-# Raspberry Pi with Raspbian and LibreELEC
-192.168.0.120   rpi2.apollo120.com      rpi2    libre.apollo120.com      libre
+# Raspberry Pi with Raspbian
+192.168.0.120   rpi2.apollo120.com      rpi2
+
+# Raspberry Pi with LibreELEC
+192.168.0.130   libre.apollo120.com      libre
 
 # Virtual Machines
 192.168.0.200   mint18vm.apollo120.com  mint18vm

@@ -106,3 +106,15 @@ function rsync-backup() {
                 fi
         done
 }
+
+function printmenu() {
+    OFS=$IFS;
+    IFS=$'\n';
+    i=0; 
+    for d in $(rsync rsync://rpi2:2000/); do 
+            ((i=$i+1)); 
+            echo "$i) $d"; 
+    done; 
+    echo "q) quit";
+    IFS=$OFS;
+}

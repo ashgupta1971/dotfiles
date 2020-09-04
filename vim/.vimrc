@@ -142,3 +142,8 @@ nnoremap <leader><space> :nohlsearch<CR>
 " The following mapping will allow you to save a read-only file
 "
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+"
+" Search entire subtree for word under the cursor
+"
+map <leader>* :grep -R <cword> * --exclude-dir={.git,tmp,log}<CR><CR>
