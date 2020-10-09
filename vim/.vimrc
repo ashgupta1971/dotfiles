@@ -147,3 +147,14 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 " Search entire subtree for word under the cursor
 "
 map <leader>* :grep -R <cword> * --exclude-dir={.git,tmp,log}<CR><CR>
+
+
+"
+" Move a line or block of lines up or down
+"
+nnoremap <c-j> :m .+1<CR>==
+nnoremap <c-k> :m .-2<CR>==
+inoremap <c-j> <Esc>:m .+1<CR>==gi
+inoremap <c-k> <Esc>:m .-2<CR>==gi
+vnoremap <c-j> :m '>+1<CR>gv=gv
+vnoremap <c-k> :m '<-2<CR>gv=gv
