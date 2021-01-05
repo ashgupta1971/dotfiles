@@ -206,6 +206,12 @@ function extract() {
 	fi
 }
 
+# The following command scans an image from the HP Officejet. It must be run on the RPI2.
+# It must be run as root or using sudo.
+function scan-rpi2() {
+    scanimage --format=jpeg --mode Gray -p -v -d 'hpaio:/usb/Officejet_4630_series?serial=CN47B392YQ05Y0' > out1.jpg
+}
+
 # This trick lists all git repos by a user (function arg) - got it from commanline.fu
 function list-git-repos() {
     curl -s "https://api.github.com/users/$1/repos?per_page=1000" | python <(echo "import json,sys;v=json.load(sys.stdin);for i in v:; print(i['git_url']);" | tr ';' '\n')

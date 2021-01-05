@@ -123,6 +123,7 @@ set showmatch           " highlight matching [{()}]
 " Searching
 "
 set ignorecase
+" set smartcase
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 " turn off search highlight
