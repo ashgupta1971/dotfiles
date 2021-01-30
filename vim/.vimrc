@@ -159,3 +159,8 @@ inoremap <c-j> <Esc>:m .+1<CR>==gi
 inoremap <c-k> <Esc>:m .-2<CR>==gi
 vnoremap <c-j> :m '>+1<CR>gv=gv
 vnoremap <c-k> :m '<-2<CR>gv=gv
+
+"
+" Save session, modified files and exit
+"
+command! Xs :mks! | :xa "save the session, save modified files, and exit
