@@ -91,7 +91,7 @@ function rsync-backup() {
         fi
         echo
         read -s "RSYNC_PASSWORD?Please enter rsync daemon password:"
-        for d in EBooks Downloads Documents Shared Music Google\ Drive; do
+        for d in sql_work python_work EBooks Downloads Documents Shared Music Google\ Drive; do
                 echo
                 echo
                 echo "##############################################################################"
