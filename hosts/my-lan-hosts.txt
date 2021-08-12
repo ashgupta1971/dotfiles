@@ -18,3 +18,4 @@
 192.168.0.200   mint18vm.apollo120.com  mint18vm
 192.168.0.210   mint19vm.apollo120.com  mint19vm
 192.168.0.220   winvm.apollo120.com     winvm
+192.168.0.230   mint20vm.apollo120.com  mint19vm
