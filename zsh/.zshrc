@@ -245,3 +245,5 @@ precmd() {
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 # EOF
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
