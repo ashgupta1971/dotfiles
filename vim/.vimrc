@@ -44,7 +44,7 @@ inoremap <leader>s <C-c>:w<CR>
 
 let mapleader=","       " leader is comma
 " edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>ev :vsp ~/.vimrc<CR>
+nnoremap <leader>ev :vsp ~/.vim/vimrc<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 " save session
@@ -98,7 +98,8 @@ set scrolloff=5
 "
 " Colors and syntax highlighting
 "
-color ron
+"color ron
+colorscheme starrynight
 syntax enable
 
 "
@@ -112,7 +113,7 @@ set expandtab	" tabs are spaces
 " Misc settings 
 "
 set showcmd     " show command in bottom bar
-set cursorline          " highlight current line
+"set cursorline          " highlight current line
 filetype indent on      " load filetype-specific indent files
 set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to
@@ -164,3 +165,9 @@ vnoremap <c-k> :m '<-2<CR>gv=gv
 " Save session, modified files and exit
 "
 command! Xs :mks! | :xa "save the session, save modified files, and exit
+
+"
+"
+"
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
