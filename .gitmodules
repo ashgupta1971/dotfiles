@@ -1,0 +1,15 @@
+[submodule ".vim/pack/vendor/start/vim-colorschemes"]
+	path = .vim/pack/vendor/start/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes.git
+[submodule ".vim/pack/vendor/start/iceberg"]
+	path = .vim/pack/vendor/start/iceberg
+	url = https://github.com/cocopon/iceberg.vim.git
+[submodule ".vim/pack/vendor/start/deoplete"]
+	path = .vim/pack/vendor/start/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule ".vim/pack/vendor/start/starrynight"]
+	path = .vim/pack/vendor/start/starrynight
+	url = https://github.com/josegamez82/starrynight.git
+[submodule ".vim/pack/vendor/start/vim-airline"]
+	path = .vim/pack/vendor/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
