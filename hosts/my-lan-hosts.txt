@@ -2,6 +2,9 @@
 # These are all the statically addressed hosts on my LAN.
 #########################################################
 
+# HP OfficeJet 4630 Printer
+192.168.0.90    hpoj4630.apollo120.com  hpoj4630
+
 # My Asus desktop
 192.168.0.100   asus.apollo120.com      asus
 

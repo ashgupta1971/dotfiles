@@ -150,6 +150,8 @@ call plug#begin("~/.vim/plugged")
 
 
 	" Now my plugins
+	" A nice white color scheme
+	Plug 'habamax/vim-sugarlily'
 	" A nice dark color scheme
 	Plug 'josegamez82/starrynight'	
 	" A whole collection of color schemes
@@ -157,6 +159,13 @@ call plug#begin("~/.vim/plugged")
 	" Code completion
 	"Plug 'neoclide/coc.nvim', { 'dir' : '~/.vim/pack/coc.nvim' }
 	Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
+    " The next 3 plugins are for live previews of markdown documents
+    Plug 'plasticboy/vim-markdown'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+    Plug 'sindresorhus/github-markdown-css'
+    " The next 2 plugins are for distraction free writing of text documents
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/goyo.vim'
 
 
 " Tell vim-plug we finished declaring plugins, so it can load them
@@ -207,7 +216,7 @@ endif
 
 " autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)
-set wildmode=list:longest
+"set wildmode=list:longest
 
 " save as sudo
 ca w!! w !sudo tee "%"
@@ -320,23 +329,23 @@ let g:airline_theme = 'bubblegum'
 
 " Fancy Symbols!!
 
-if fancy_symbols_enabled
-    let g:webdevicons_enable = 1
-
-    " custom airline symbols
-    if !exists('g:airline_symbols')
-       let g:airline_symbols = {}
-    endif
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = '⭠'
-    let g:airline_symbols.readonly = '⭤'
-    let g:airline_symbols.linenr = '⭡'
-else
+        "if fancy_symbols_enabled
+        "    let g:webdevicons_enable = 1
+"
+"            " custom airline symbols
+"            if !exists('g:airline_symbols')
+"               let g:airline_symbols = {}
+"            endif
+"            let g:airline_left_sep = ''
+"            let g:airline_left_alt_sep = ''
+"            let g:airline_right_sep = ''
+"            let g:airline_right_alt_sep = ''
+"            let g:airline_symbols.branch = '⭠'
+"            let g:airline_symbols.readonly = '⭤'
+"            let g:airline_symbols.linenr = '⭡'
+"        else
     let g:webdevicons_enable = 0
-endif
+"endif
 
 " Custom configurations ----------------
 
@@ -539,3 +548,9 @@ command! Xs :mks! | :xa "save the session, save modified files, and exit
 "
 "let g:deoplete#enable_at_startup = 1
 let g:coc_node_path="/usr/bin/node"
+
+" Markdown preview settings
+let g:mkdp_browser='/usr/bin/google-chrome-stable'
+let g:mkdp_filetypes=['markdown']
+let g:mkdp_markdown_css='/home/ashish/Documents/Temp/github-markdown-light.css'
+let g:mkdp_auto_start=1 
