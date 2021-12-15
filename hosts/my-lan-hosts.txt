@@ -2,6 +2,15 @@
 # These are all the statically addressed hosts on my LAN.
 #########################################################
 
+# Sony Bedroom Blu-Ray Player
+192.168.0.60    bluray2.apollo120.com   bluray2
+
+# Sony Living Room Blu-Ray Player
+192.168.0.70    bluray1.apollo120.com   bluray1
+
+# Samsung Living Room TV
+192.168.0.80    samsungtv.apollo120.com samsungtv
+
 # HP OfficeJet 4630 Printer
 192.168.0.90    hpoj4630.apollo120.com  hpoj4630
 
