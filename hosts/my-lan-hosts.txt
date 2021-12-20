@@ -26,6 +26,9 @@
 # Raspberry Pi with LibreELEC
 192.168.0.130   libre.apollo120.com      libre
 
+# ACER Server
+192.168.0.140   acer.apollo120.com      acer
+
 # Virtual Machines
 192.168.0.200   mint18vm.apollo120.com  mint18vm
 192.168.0.210   mint19vm.apollo120.com  mint19vm
