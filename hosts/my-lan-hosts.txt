@@ -2,6 +2,11 @@
 # These are all the statically addressed hosts on my LAN.
 #########################################################
 
+# a test
+
+# TP-Link Switch
+192.168.0.2    tp-link.apollo120.com   tp-link
+
 # Sony Bedroom Blu-Ray Player
 192.168.0.60    bluray2.apollo120.com   bluray2
 

@@ -159,13 +159,18 @@ call plug#begin("~/.vim/plugged")
 	" Code completion
 	"Plug 'neoclide/coc.nvim', { 'dir' : '~/.vim/pack/coc.nvim' }
 	Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
-    " The next 3 plugins are for live previews of markdown documents
+    " The next 4 plugins are for live previews of markdown documents
+    Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
     Plug 'sindresorhus/github-markdown-css'
     " The next 2 plugins are for distraction free writing of text documents
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/goyo.vim'
+    " Another color scheme
+    Plug 'adigitoleo/vim-mellow', { 'tag': '*' }
+    " A status line color scheme
+    "Plug 'adigitoleo/vim-mellow-statusline', { 'tag': '*' }
 
 
 " Tell vim-plug we finished declaring plugins, so it can load them
@@ -550,7 +555,42 @@ command! Xs :mks! | :xa "save the session, save modified files, and exit
 let g:coc_node_path="/usr/bin/node"
 
 " Markdown preview settings
-let g:mkdp_browser='/usr/bin/google-chrome-stable'
+"let g:mkdp_browser='/usr/bin/google-chrome-stable'
+"let g:mkdp_browser='/usr/bin/firefox'
+let g:mkdp_browser='/usr/bin/xdg-open'
 let g:mkdp_filetypes=['markdown']
 let g:mkdp_markdown_css='/home/ashish/Documents/Temp/github-markdown-light.css'
 let g:mkdp_auto_start=1 
+
+let g:mkdp_echo_preview_url = 1
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+
+" .............................................................................
+" junegunn/limelight.vim
+" .............................................................................
+
+let g:limelight_conceal_ctermfg=244
+
+" .............................................................................
+" iamcco/markdown-preview.nvim
+" .............................................................................
+
+let g:mkdp_auto_close=0
+let g:mkdp_refresh_slow=1
+
+autocmd FileType markdown let b:sleuth_automatic=0
+autocmd FileType markdown set conceallevel=0
+autocmd FileType markdown normal zR
+
