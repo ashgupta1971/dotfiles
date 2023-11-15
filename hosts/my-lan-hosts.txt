@@ -41,3 +41,4 @@
 # KVM Virtual Machines
 192.168.2.100   mint20kvm.apollo120.com mint20kvm
 192.168.2.110   manjaro23kvm.apollo120.com  manjaro23kvm
+
