@@ -90,8 +90,16 @@ function rsync-backup() {
                 DEST="toshiba";
         fi
         echo
+        echo
         read -s "RSYNC_PASSWORD?Please enter rsync daemon password:"
-        for d in sql_work python_work EBooks Downloads Documents Shared Music Google\ Drive; do
+        echo
+        echo "$RSYNC_PASSWORD" | rsync --password-file=- --dry-run -avux --delete --human-readable --stats --progress "/etc" "rsync://ashish@$DEST:2000/etc"
+        read -k 1 "BACKUP?Backup this folder (y/n)?"
+        echo
+        if [[ $BACKUP = (#i)"y" ]]; then
+                echo "$RSYNC_PASSWORD" | rsync --password-file=- -avux --delete --human-readable --stats --progress "/etc" "rsync://ashish@$DEST:2000/etc"
+        fi
+        for d in VBox-shared sql_work python_work EBooks Downloads Documents Shared Music Google\ Drive; do
                 echo
                 echo
                 echo "##############################################################################"

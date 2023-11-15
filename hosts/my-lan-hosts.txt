@@ -2,8 +2,6 @@
 # These are all the statically addressed hosts on my LAN.
 #########################################################
 
-# a test
-
 # TP-Link Switch
 192.168.0.2    tp-link.apollo120.com   tp-link
 
@@ -34,8 +32,12 @@
 # ACER Server
 192.168.0.140   acer.apollo120.com      acer
 
-# Virtual Machines
+# VirtualBox Virtual Machines
 192.168.0.200   mint18vm.apollo120.com  mint18vm
 192.168.0.210   mint19vm.apollo120.com  mint19vm
 192.168.0.220   winvm.apollo120.com     winvm
 192.168.0.230   mint20vm.apollo120.com  mint20vm
+
+# KVM Virtual Machines
+192.168.2.100   mint20kvm.apollo120.com mint20kvm
+192.168.2.110   manjaro23kvm.apollo120.com  manjaro23kvm

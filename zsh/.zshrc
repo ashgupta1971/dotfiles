@@ -46,6 +46,7 @@ bindkey '^J' push-line
 umask 027
 
 path+=( $HOME/bin /sbin /usr/sbin /usr/local/sbin ); path=( ${(u)path} );
+path+=( $HOME/Scripts )
 CDPATH=$CDPATH::$HOME:/usr/local
 
 
@@ -215,6 +216,22 @@ function scan-rpi2() {
 # This trick lists all git repos by a user (function arg) - got it from commanline.fu
 function list-git-repos() {
     curl -s "https://api.github.com/users/$1/repos?per_page=1000" | python <(echo "import json,sys;v=json.load(sys.stdin);for i in v:; print(i['git_url']);" | tr ';' '\n')
+}
+
+# A Rudimentary backup function to copy files to an external USB HDD
+function backup() {
+    OLDCWD=$(pwd)
+    cd ~ashish
+
+    BACKUP_LOG="backup-$(date +"%H:%M:%S").log"
+    touch $BACKUP_LOG
+
+    for d in Documents Downloads EBooks Music VBox-shared python_work sql_work Shared; do
+        cp --archive --update --verbose $d /run/media/ashish/FujitsuHDD/Backup | grep -v "^skipped" | tee -a $BACKUP_LOG
+    done
+    cp --archive --update --verbose "Google Drive" /run/media/ashish/FujitsuHDD/Backup | grep -v "^skipped" | tee -a $BACKUP_LOG
+
+    cd "$OLDCWD"
 }
 
 # Run precmd functions
