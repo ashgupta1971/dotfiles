@@ -20,7 +20,8 @@ alias sha1='openssl sha1'
 alias md5='openssl md5'
 
 # System Monitoring Commands
-alias j='jobs -l'
+# Need the following for autojump function in .zshrc
+#alias j='jobs -l'
 alias meminfo='free -m -l -t'
 alias psf='ps -opid,uid,cpu,time,stat,command'
 alias psmem='ps auxf | sort -nr -k 4'

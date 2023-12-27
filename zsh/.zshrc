@@ -46,7 +46,7 @@ bindkey '^J' push-line
 umask 027
 
 path+=( $HOME/bin /sbin /usr/sbin /usr/local/sbin ); path=( ${(u)path} );
-path+=( $HOME/Scripts )
+path+=( $HOME/Scripts $HOME/python_work/My_OptionsPlay )
 CDPATH=$CDPATH::$HOME:/usr/local
 
 
@@ -232,6 +232,11 @@ function backup() {
     cp --archive --update --verbose "Google Drive" /run/media/ashish/FujitsuHDD/Backup | grep -v "^skipped" | tee -a $BACKUP_LOG
 
     cd "$OLDCWD"
+}
+
+# Use autojump package to quickly change dirs
+function j() {
+    cd "$(autojump "$1")"
 }
 
 # Run precmd functions
