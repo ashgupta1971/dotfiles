@@ -81,39 +81,79 @@
 ###          return 0
 ###  }
         
-# Backup to Raspberry Pi or Toshiba laptop rsync daemon
-function rsync-backup() {
-        read -k 1 "DEST?Backup to Raspberry Pi (1) or Toshiba laptop (2)?"
-        if [[ $DEST = 1 ]]; then
-                DEST="rpi2";
-        else
-                DEST="toshiba";
+# My NEW backup function
+function backup() {
+        BACKUP_LOG="/var/log/ashish/backup-$(date +"%H:%M:%S").log"
+        touch $BACKUP_LOG
+
+        echo "Please attach external Crucial SSD and mount it to /Backup."
+        read -k 1 "DUMMY?Press any key when ready."
+        echo
+
+        sudo rsync \
+                --dry-run \
+                --human-readable \
+                --stats \
+                --progress \
+                --archive \
+                --update \
+                --delete \
+                --exclude-from="/home/ashish/rsyncd/rsyncd.exclude" \
+                --log-file="$BACKUP_LOG" \
+                /home/ashish/ \
+                /Backup/asus/home/ashish
+
+        echo
+        read -k 1 "CONTINUE?Continue (y/n)?"
+        if [[ $CONTINUE = (#i)"y" ]]; then
+                sudo rsync \
+                        --human-readable \
+                        --stats \
+                        --progress \
+                        --archive \
+                        --update \
+                        --delete \
+                        --exclude-from="/home/ashish/rsyncd/rsyncd.exclude" \
+                        --log-file="$BACKUP_LOG" \
+                        /home/ashish/ \
+                        /Backup/asus/home/ashish
         fi
-        echo
-        echo
-        read -s "RSYNC_PASSWORD?Please enter rsync daemon password:"
-        echo
-        echo "$RSYNC_PASSWORD" | rsync --password-file=- --dry-run -avux --delete --human-readable --stats --progress "/etc" "rsync://ashish@$DEST:2000/etc"
-        read -k 1 "BACKUP?Backup this folder (y/n)?"
-        echo
-        if [[ $BACKUP = (#i)"y" ]]; then
-                echo "$RSYNC_PASSWORD" | rsync --password-file=- -avux --delete --human-readable --stats --progress "/etc" "rsync://ashish@$DEST:2000/etc"
-        fi
-        for d in VBox-shared sql_work python_work EBooks Downloads Documents Shared Music Google\ Drive; do
-                echo
-                echo
-                echo "##############################################################################"
-                echo "########################## $d #########################"
-                echo "##############################################################################"
-                echo
-                echo "$RSYNC_PASSWORD" | rsync --password-file=- --dry-run -avux --delete --human-readable --stats --progress "/home/ashish/$d/" "rsync://ashish@$DEST:2000/$d"
-                read -k 1 "BACKUP?Backup this folder (y/n)?"
-                echo
-                if [[ $BACKUP = (#i)"y" ]]; then
-                        echo "$RSYNC_PASSWORD" | rsync --password-file=- -avux --delete --human-readable --stats --progress "/home/ashish/$d/" "rsync://ashish@$DEST:2000/$d"
-                fi
-        done
 }
+
+# Backup to Raspberry Pi or Toshiba laptop rsync daemon
+# DEPRECATED!!!
+#function rsync-backup() {
+#        read -k 1 "DEST?Backup to Raspberry Pi (1) or Toshiba laptop (2)?"
+#        if [[ $DEST = 1 ]]; then
+#                DEST="rpi2";
+#        else
+#                DEST="toshiba";
+#        fi
+#        echo
+#        echo
+#        read -s "RSYNC_PASSWORD?Please enter rsync daemon password:"
+#        echo
+#        echo "$RSYNC_PASSWORD" | rsync --password-file=- --dry-run -avux --delete --human-readable --stats --progress "/etc" "rsync://ashish@$DEST:2000/etc"
+#        read -k 1 "BACKUP?Backup this folder (y/n)?"
+#        echo
+#        if [[ $BACKUP = (#i)"y" ]]; then
+#                echo "$RSYNC_PASSWORD" | rsync --password-file=- -avux --delete --human-readable --stats --progress "/etc" "rsync://ashish@$DEST:2000/etc"
+#        fi
+#        for d in VBox-shared sql_work python_work EBooks Downloads Documents Shared Music Google\ Drive; do
+#                echo
+#                echo
+#                echo "##############################################################################"
+#                echo "########################## $d #########################"
+#                echo "##############################################################################"
+#                echo
+#                echo "$RSYNC_PASSWORD" | rsync --password-file=- --dry-run -avux --delete --human-readable --stats --progress "/home/ashish/$d/" "rsync://ashish@$DEST:2000/$d"
+#                read -k 1 "BACKUP?Backup this folder (y/n)?"
+#                echo
+#                if [[ $BACKUP = (#i)"y" ]]; then
+#                        echo "$RSYNC_PASSWORD" | rsync --password-file=- -avux --delete --human-readable --stats --progress "/home/ashish/$d/" "rsync://ashish@$DEST:2000/$d"
+#                fi
+#        done
+#}
 
 function printmenu() {
     OFS=$IFS;

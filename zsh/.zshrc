@@ -219,25 +219,26 @@ function list-git-repos() {
 }
 
 # A Rudimentary backup function to copy files to an external USB HDD
-function backup() {
-    OLDCWD=$(pwd)
-    cd ~ashish
-
-    BACKUP_LOG="backup-$(date +"%H:%M:%S").log"
-    touch $BACKUP_LOG
-
-    for d in Documents Downloads EBooks Music VBox-shared python_work sql_work Shared; do
-        cp --archive --update --verbose $d /run/media/ashish/FujitsuHDD/Backup | grep -v "^skipped" | tee -a $BACKUP_LOG
-    done
-    cp --archive --update --verbose "Google Drive" /run/media/ashish/FujitsuHDD/Backup | grep -v "^skipped" | tee -a $BACKUP_LOG
-
-    cd "$OLDCWD"
-}
-
+# DEPRECATED!!!!!
+#function backup() {
+#    OLDCWD=$(pwd)
+#    cd ~ashish
+#
+#    BACKUP_LOG="backup-$(date +"%H:%M:%S").log"
+#    touch $BACKUP_LOG
+#
+#    for d in Documents Downloads EBooks Music VBox-shared python_work sql_work Shared; do
+#        cp --archive --update --verbose $d /run/media/ashish/FujitsuHDD/Backup | grep -v "^skipped" | tee -a $BACKUP_LOG
+#    done
+#    cp --archive --update --verbose "Google Drive" /run/media/ashish/FujitsuHDD/Backup | grep -v "^skipped" | tee -a $BACKUP_LOG
+#
+#    cd "$OLDCWD"
+#}
+#
 # Use autojump package to quickly change dirs
-function j() {
-    cd "$(autojump "$1")"
-}
+#function j() {
+#    cd "$(autojump "$1")"
+#}
 
 # Run precmd functions
 precmd_functions=( precmd_prompt grep_options )
