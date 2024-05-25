@@ -112,6 +112,16 @@ function backup() {
         if [[ $CONTINUE = (#i)"y" ]]; then
                 sudo rsync $OPTIONS /home/ashish/ /Backup/asus/home/ashish
         fi
+
+        echo
+        echo "List of KVM VMs:"
+        KVMS=(`sudo virsh list --all | sed '/^[[:space:]]*$/d' | tail +3 | awk '{print $2}'`)
+        read -k 1 "VMS?Backup all KVM VMs (y/n)?"
+        if [[ $VMS = (#i)"y" ]]; then
+                for dom in $KVMS; do
+                        sudo virsh domblklist $dom
+                done
+        fi
 }
 
 # Backup to Raspberry Pi or Toshiba laptop rsync daemon
