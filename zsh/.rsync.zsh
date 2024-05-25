@@ -83,40 +83,34 @@
         
 # My NEW backup function
 function backup() {
+        find /var/log/ashish -ctime +1 -delete
+
         BACKUP_LOG="/var/log/ashish/backup-$(date +"%H:%M:%S").log"
         touch $BACKUP_LOG
+
+        OPTIONS=(--human-readable --stats --progress --archive --update --delete --exclude-from=/home/ashish/rsyncd/rsyncd.exclude --log-file=$BACKUP_LOG)
 
         echo "Please attach external Crucial SSD and mount it to /Backup."
         read -k 1 "DUMMY?Press any key when ready."
         echo
 
-        sudo rsync \
-                --dry-run \
-                --human-readable \
-                --stats \
-                --progress \
-                --archive \
-                --update \
-                --delete \
-                --exclude-from="/home/ashish/rsyncd/rsyncd.exclude" \
-                --log-file="$BACKUP_LOG" \
-                /home/ashish/ \
-                /Backup/asus/home/ashish
+        echo
+        sudo rsync --dry-run $OPTIONS /etc/ /Backup/etc
+        echo
+
+        read -k 1 "ETC?Backup /etc (y/n)?"
+        if [[ $ETC = (#i)"y" ]]; then
+                sudo rsync $OPTIONS /etc/ /Backup/etc
+        fi
+
+        read -k 1 "DUMMY?Press any key when ready."
+        echo
+        sudo rsync --dry-run $OPTIONS /home/ashish/ /Backup/asus/home/ashish
 
         echo
         read -k 1 "CONTINUE?Continue (y/n)?"
         if [[ $CONTINUE = (#i)"y" ]]; then
-                sudo rsync \
-                        --human-readable \
-                        --stats \
-                        --progress \
-                        --archive \
-                        --update \
-                        --delete \
-                        --exclude-from="/home/ashish/rsyncd/rsyncd.exclude" \
-                        --log-file="$BACKUP_LOG" \
-                        /home/ashish/ \
-                        /Backup/asus/home/ashish
+                sudo rsync $OPTIONS /home/ashish/ /Backup/asus/home/ashish
         fi
 }
 
