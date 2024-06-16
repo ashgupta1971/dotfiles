@@ -49,9 +49,11 @@ alias wget='wget -c'
 # Misc Commands
 alias cd='z'
 
-alias ls='eza --color=always'
+alias ls='eza -F --color=always'
 alias ll='eza -lha --group --group-directories-first'
 alias la='eza -A'
+alias ldr='eza --color=always -Dla'
+alias lf='eza --color=always -fla'
 alias lls='eza -Sr'
 
 #alias ls='ls -F --color=auto'
