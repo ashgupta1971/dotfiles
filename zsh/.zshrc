@@ -207,6 +207,19 @@ function extract() {
 	fi
 }
 
+# Calculate the annualized return of a short call/put option trade.
+function areturn() {
+    premium=$1
+    stockprice=$2
+    expiry=$3
+    rawreturn=`echo "scale=4; $premium / $stockprice * 100" | bc --mathlib`
+
+    DTE=`echo "scale=2; ($(date -d ""$expiry"" +%s) - $(date -d ""00:00"" +%s )) / (24*3600)" | bc --mathlib`
+    echo "DTE = $DTE days"
+    echo "Raw return = $rawreturn %"
+    printf "Annualized return = %.2f %%\n" $(echo "((1 +  $premium / $stockprice)^(365 / $DTE) - 1) * 100" | bc -l)
+}
+
 # The following command scans an image from the HP Officejet. It must be run on the RPI2.
 # It must be run as root or using sudo.
 function scan-rpi2() {

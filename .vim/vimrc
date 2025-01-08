@@ -481,7 +481,8 @@ set scrolloff=5
 " Colors and syntax highlighting
 "
 "color ron
-colorscheme starrynight
+"colorscheme starrynight
+colorscheme peachpuff
 syntax enable
 
 "
