@@ -214,7 +214,7 @@ function areturn() {
     expiry=$3
     rawreturn=`echo "scale=4; $premium / $stockprice * 100" | bc --mathlib`
 
-    DTE=`echo "scale=2; ($(date -d ""$expiry"" +%s) - $(date -d ""00:00"" +%s )) / (24*3600)" | bc --mathlib`
+    DTE=`echo "scale=0; ($(date -d ""$expiry"" +%s) - $(date -d ""00:00"" +%s )) / (24*3600)" | bc --mathlib`
     echo "DTE = $DTE days"
     printf "Raw return = %.2f %%\n" $rawreturn
     printf "Annualized return = %.2f %%\n" $(echo "(e(l(1 +  $premium / $stockprice)*(365 / $DTE)) - 1) * 100" | bc --mathlib)
