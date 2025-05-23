@@ -15,10 +15,12 @@
 192.168.0.80    samsungtv.apollo120.com samsungtv
 
 # HP OfficeJet 4630 Printer
-192.168.0.90    hpoj4630.apollo120.com  hpoj4630
+# 192.168.0.90    hpoj4630.apollo120.com  hpoj4630
+10.0.0.86       hpoj4630.apollo120.com  hpoj4630
 
 # My Asus desktop
-192.168.0.100   asus.apollo120.com      asus
+# 192.168.0.100   asus.apollo120.com      asus
+10.0.0.61       asus.apollo120.com      asus
 
 # Toshiba Laptop
 192.168.0.110   toshiba.apollo120.com   toshiba
@@ -30,7 +32,8 @@
 192.168.0.130   libre.apollo120.com      libre
 
 # ACER Server
-192.168.0.140   acer.apollo120.com      acer
+# 192.168.0.140   acer.apollo120.com      acer
+10.0.0.73       acer.apollo120.com      acer
 
 # VirtualBox Virtual Machines
 192.168.0.200   mint18vm.apollo120.com  mint18vm
