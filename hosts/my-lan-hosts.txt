@@ -11,39 +11,33 @@
 # Sony Living Room Blu-Ray Player
 192.168.0.70    bluray1.apollo120.com   bluray1
 
-# Samsung Living Room TV
-192.168.0.80    samsungtv.apollo120.com samsungtv
+# Samsung Living Room TV (NOT SURE!!!)
+10.0.0.101   samsungtv.apollo120.com samsungtv
+#192.168.0.80    samsungtv.apollo120.com samsungtv
 
 # HP OfficeJet 4630 Printer
 10.0.0.86       hpoj4630.apollo120.com  hpoj4630
 # 192.168.0.90    hpoj4630.apollo120.com  hpoj4630
 
-# My Asus desktop
+# ASUS Desktop
 10.0.0.138      asus.apollo120.com      asus
 # 10.0.0.61       asus.apollo120.com      asus
 # 192.168.0.100   asus.apollo120.com      asus
 
-# Toshiba Laptop
-192.168.0.110   toshiba.apollo120.com   toshiba
+# Raspberry Pi 2
+10.0.0.210  	rpi2.apollo120.com      rpi2
 
-# Raspberry Pi with Raspbian
-192.168.0.120   rpi2.apollo120.com      rpi2
-
-# Raspberry Pi with LibreELEC
-192.168.0.130   libre.apollo120.com      libre
-
-# ACER Server
+# ACER Desktop
 10.0.0.73       acer.apollo120.com      acer
 # 192.168.0.140   acer.apollo120.com      acer
 
 # VirtualBox Virtual Machines
-192.168.0.200   mint18vm.apollo120.com  mint18vm
-192.168.0.210   mint19vm.apollo120.com  mint19vm
-192.168.0.220   winvm.apollo120.com     winvm
-192.168.0.230   mint20vm.apollo120.com  mint20vm
-192.168.0.240   debian12vm.apollo120.com  debian12vm
+#192.168.0.200   mint18vm.apollo120.com  mint18vm
+#192.168.0.210   mint19vm.apollo120.com  mint19vm
+#192.168.0.220   winvm.apollo120.com     winvm
+#192.168.0.230   mint20vm.apollo120.com  mint20vm
+#192.168.0.240   debian12vm.apollo120.com  debian12vm
 
 # KVM Virtual Machines
-192.168.2.100   mint20kvm.apollo120.com mint20kvm
-192.168.2.110   manjaro23kvm.apollo120.com  manjaro23kvm
-
+#192.168.2.100   mint20kvm.apollo120.com mint20kvm
+#192.168.2.110   manjaro23kvm.apollo120.com  manjaro23kvm

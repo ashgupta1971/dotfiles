@@ -46,7 +46,8 @@ bindkey '^J' push-line
 umask 027
 
 path+=( $HOME/bin /sbin /usr/sbin /usr/local/sbin ); path=( ${(u)path} );
-path+=( $HOME/Scripts $HOME/python_work/My_OptionsPlay )
+#path+=( $HOME/Scripts $HOME/python_work/My_OptionsPlay )
+path+=( $HOME/python_work/My_OptionsPlay )
 CDPATH=$CDPATH::$HOME:/usr/local
 
 
