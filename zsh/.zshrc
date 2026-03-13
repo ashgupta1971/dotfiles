@@ -285,7 +285,7 @@ precmd() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 # =============================================================================
 #
 # Utility functions for zoxide.
